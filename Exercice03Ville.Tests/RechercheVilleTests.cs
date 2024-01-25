@@ -64,10 +64,8 @@ namespace Exercice03Ville.Tests
         public void Search_Asterisk_ReturnsAllCities()
         {
             var rechercheVille = new RechercheVille();
-
-            rechercheVille.AjouterVilles(new List<string> { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver",
-                                                            "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok",
-                                                            "Hong Kong", "Dubai", "Rome", "Istanbul" });
+            var toutesLesVilles = new List<string> { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubai", "Rome", "Istanbul" };
+            rechercheVille.AjouterVilles(toutesLesVilles);
 
             var resultats = rechercheVille.Rechercher("*");
 

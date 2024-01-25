@@ -11,6 +11,11 @@
 
         public List<String> Rechercher(String mot)
         {
+            if (mot == "*")
+            {
+                return new List<String>(_villes);
+            }
+
             if (mot.Length < 2)
             {
                 throw new NotFoundException("La recherche doit contenir au moins 2 caractères.");
