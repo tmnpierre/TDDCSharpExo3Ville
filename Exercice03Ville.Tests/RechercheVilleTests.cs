@@ -6,11 +6,12 @@ namespace Exercice03Ville.Tests
     public class RechercheVilleTests
     {
         [TestMethod]
+        [ExpectedException(typeof(NotFoundException))]
         public void Search_TextLessThanTwoCharacters_ThrowsNotFoundException()
         {
             var rechercheVille = new RechercheVille();
-            var searchWord = "a";
-            rechercheVille.Rechercher(searchWord);
+
+            rechercheVille.Rechercher("a");
         }
     }
 }
