@@ -2,7 +2,12 @@
 {
     public class RechercheVille
     {
-        private List<String> _villes;
+        private List<String> _villes = new List<String>();
+
+        public void AjouterVilles(List<String> villes)
+        {
+            _villes.AddRange(villes);
+        }
 
         public List<String> Rechercher(String mot)
         {
@@ -11,9 +16,10 @@
                 throw new NotFoundException("La recherche doit contenir au moins 2 caractères.");
             }
 
-            throw new NotImplementedException();
+            return _villes.FindAll(ville => ville.StartsWith(mot));
         }
     }
+
 
     public class NotFoundException : Exception
     {
