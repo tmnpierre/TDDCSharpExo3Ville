@@ -46,5 +46,19 @@ namespace Exercice03Ville.Tests
             CollectionAssert.AreEqual(villesAttendues, resultatsMixtes);
         }
 
+        [TestMethod]
+        public void Search_PartialCitySearch_ReturnsMatchingCities()
+        {
+            var rechercheVille = new RechercheVille();
+
+            rechercheVille.AjouterVilles(new List<string> { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver",
+                                                            "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok",
+                                                            "Hong Kong", "Dubai", "Rome", "Istanbul" });
+
+            var resultats = rechercheVille.Rechercher("ape");
+
+            CollectionAssert.AreEqual(new List<string> { "Budapest" }, resultats);
+        }
+
     }
 }
