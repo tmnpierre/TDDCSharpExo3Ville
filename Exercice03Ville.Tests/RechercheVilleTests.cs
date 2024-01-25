@@ -19,11 +19,31 @@ namespace Exercice03Ville.Tests
         {
             var rechercheVille = new RechercheVille();
 
-            rechercheVille.AjouterVilles(new List<string> { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubai", "Rome", "Istanbul" });
+            rechercheVille.AjouterVilles(new List<string> { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", 
+                                                            "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", 
+                                                            "Hong Kong", "Dubai", "Rome", "Istanbul" });
 
             var resultats = rechercheVille.Rechercher("Va");
 
             CollectionAssert.AreEqual(new List<string> { "Valence", "Vancouver" }, resultats);
+        }
+        [TestMethod]
+        public void Search_CaseInsensitiveSearch_ReturnsMatchingCities()
+        {
+            var rechercheVille = new RechercheVille();
+
+            rechercheVille.AjouterVilles(new List<string> { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver",
+                                                            "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok",
+                                                            "Hong Kong", "Dubai", "Rome", "Istanbul" });
+
+            var resultatsMinuscules = rechercheVille.Rechercher("va");
+            var resultatsMajuscules = rechercheVille.Rechercher("VA");
+            var resultatsMixtes = rechercheVille.Rechercher("Va");
+
+            var villesAttendues = new List<string> { "Valence", "Vancouver" };
+            CollectionAssert.AreEqual(villesAttendues, resultatsMinuscules);
+            CollectionAssert.AreEqual(villesAttendues, resultatsMajuscules);
+            CollectionAssert.AreEqual(villesAttendues, resultatsMixtes);
         }
 
     }
