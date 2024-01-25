@@ -16,7 +16,7 @@
                 throw new NotFoundException("La recherche doit contenir au moins 2 caractères.");
             }
 
-            return _villes.FindAll(ville => ville.StartsWith(mot, StringComparison.OrdinalIgnoreCase));
+            return _villes.FindAll(ville => ville.IndexOf(mot, StringComparison.OrdinalIgnoreCase) >= 0);
         }
     }
 
